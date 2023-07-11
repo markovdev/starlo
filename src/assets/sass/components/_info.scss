@@ -1,0 +1,70 @@
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  background-color: var(--color-primary-light-5);
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 3.2rem;
+  }
+
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    height: 100%;
+    width: 100%;
+
+    transition: filter 0.5s;
+    object-fit: cover;
+
+    @media only screen and(max-width: $bp-medium) {
+      &:nth-child(3) {
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+      }
+      &:nth-child(4) {
+        grid-row: 3;
+        border-radius: 0rem;
+      }
+    }
+    &--1 {
+      border-top-left-radius: var(--radius);
+      @media only screen and (max-width: $bp-medium) {
+        border-top-right-radius: var(--radius);
+      }
+    }
+    &--2 {
+      border-bottom-right-radius: var(--radius);
+      @media only screen and(max-width: $bp-medium) {
+        grid-row: 3;
+        border-radius: 0rem;
+      }
+    }
+  }
+
+  &__text {
+    height: 100%;
+
+    padding: 3.2rem 6.4rem;
+    @include flexCol;
+    &--1 {
+      border-top-right-radius: var(--radius);
+
+      @media only screen and (max-width: $bp-medium) {
+        border-radius: 0rem;
+      }
+    }
+    &--2 {
+      border-bottom-left-radius: var(--radius);
+      @media only screen and (max-width: $bp-medium) {
+        border-bottom-right-radius: var(--radius);
+      }
+    }
+  }
+  &__heading {
+    color: var(--color-primary-dark-5);
+    font-size: 3.2rem;
+  }
+}

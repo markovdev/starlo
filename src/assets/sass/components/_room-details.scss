@@ -1,0 +1,28 @@
+.room-details {
+  &__icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    stroke: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+  }
+  &__text {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size);
+    gap: 0.3rem;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
+  }
+  &__number {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  &__description {
+  }
+  &__heading {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}

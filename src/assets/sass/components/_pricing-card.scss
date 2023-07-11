@@ -1,0 +1,68 @@
+.pricing {
+  &__card {
+    margin-top: 6rem;
+    background-color: var(--color-white);
+    padding: 3.2rem 2.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3.2rem;
+    font-size: 1.8rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    &--active {
+      background-color: var(--color-primary);
+      color: var(--color-grey-light-1);
+      transform: scale(1.1);
+      @media only screen and (max-width: $bp-small) {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__price {
+    position: absolute;
+    margin-top: -6rem;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: var(--color-grey-light-1);
+    padding: 2.4rem;
+    font-size: 2.8rem;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size: 2rem;
+    }
+    &--active {
+      color: var(--color-grey-dark-1);
+      // background-color: ;
+    }
+  }
+  &__description {
+    font-size: var(--font-size);
+  }
+  &__heading {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-top: 4rem;
+    text-transform: uppercase;
+    &--active {
+      color: var(--color-white);
+    }
+  }
+
+  &__icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    color: currentColor;
+  }
+  .btn {
+    align-self: center;
+  }
+}

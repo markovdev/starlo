@@ -1,0 +1,15 @@
+.dashboard {
+  display: flex;
+  padding-top: 10rem;
+  gap: 6.4rem;
+  &__content {
+    width: 80%;
+  }
+  &__placeholder {
+    flex: 0 0 18%;
+    height: 105%;
+    @media only screen and (max-width: $bp-medium) {
+      flex: 0;
+    }
+  }
+}

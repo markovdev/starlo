@@ -1,0 +1,39 @@
+.section--features {
+  background-color: var(--color-white);
+}
+.section-appartments {
+  // height: 100vh;
+}
+.section-pricing {
+  background: var(--color-grey);
+  padding: 15rem 0;
+}
+.section-testimonials {
+  // height: 200vh;
+  padding: 15rem 0;
+  // margin: 15rem 0;
+  background: linear-gradient(
+      to right top,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../img/testimonials-background.jpg");
+  // background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section-booking {
+  padding: 4rem 0;
+  background: linear-gradient(
+      to right top,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../img/contact.jpg");
+  // background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}

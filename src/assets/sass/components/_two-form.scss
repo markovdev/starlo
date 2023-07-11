@@ -1,0 +1,16 @@
+.two-auth {
+  width: 50rem;
+  //   height: 50rem;
+  padding: 3.2rem;
+  background-color: var(--color-white);
+
+  border-radius: var(--radius);
+  box-shadow: 0 2rem 4rem rgba(#000, 0.1);
+  @include flexCol;
+
+  align-items: flex-start;
+  gap: 1.2rem;
+  &__heading {
+    font-size: 2.2rem;
+  }
+}

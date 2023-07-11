@@ -1,0 +1,9 @@
+.change-info {
+  width: 40%;
+  padding: 8rem 0;
+
+  &:not(:last-child) {
+    margin-bottom: 8rem;
+    border-bottom: 1px solid var(--color-grey-light-4);
+  }
+}

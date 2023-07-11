@@ -1,0 +1,227 @@
+.u-center-text {
+  text-align: center !important;
+}
+.u-margin-right-small {
+  margin-right: 1.5rem !important;
+}
+.u-margin-bottom-small {
+  margin-bottom: 1rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-top-small {
+  margin-top: 1.5rem !important;
+}
+.u-margin-top-medium {
+  margin-top: 4rem !important;
+}
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.color {
+  &--white {
+    color: #fff !important;
+  }
+
+  &--grey-light {
+    color: #eee;
+  }
+}
+.u-list {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    @media only screen and (max-width: $bp-small) {
+      gap: 0.4rem;
+    }
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &--row {
+    flex-direction: row;
+    align-items: center;
+  }
+  &--center {
+    align-items: center;
+  }
+  &--col {
+    flex-direction: column;
+    @media only screen and (max-width: $bp-small) {
+      gap: 1rem;
+    }
+  }
+}
+
+.section {
+  padding: 8rem 0;
+  // transition: transform 1s, opacity 0.8s ease;
+  transition: all 1s;
+  overflow: hidden;
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-grey-light-1);
+  }
+  &--hidden {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  &--space {
+    padding: 12rem 0;
+  }
+  &--4 {
+    position: relative;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    );
+  }
+  &--6 {
+    background: linear-gradient(
+        to right top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url("../img/booking.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  &--room-play {
+    background-color: #f9f9f9;
+  }
+  &--pricing {
+    background-color: var(--color-white);
+  }
+  &--rooms {
+    padding-top: 14rem;
+  }
+  &--gallery {
+    padding: 1rem;
+    // background: var(--color-grey-light);
+    display: grid;
+    grid-template: repeat(7, 5vw) / repeat(8, 1fr);
+    grid-gap: 1.5rem;
+    @media only screen and (max-width: $bp-small) {
+      padding: 2rem;
+      grid-gap: 1rem;
+    }
+  }
+  &--full {
+    // @include flexCenter;
+  }
+}
+
+.img {
+  &--lazy {
+    filter: blur(20px);
+  }
+}
+
+.highlight {
+  position: relative;
+  z-index: -1;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    background-color: var(--color-primary);
+
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    padding: 1rem 0.5rem;
+
+    opacity: 0.7;
+    transform: scale(1.1, 1.15) skewX(-15deg);
+  }
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--color-grey-dark);
+}
+.u-flex {
+  display: flex;
+  gap: 3.2rem;
+  &--col {
+    flex-direction: column;
+  }
+  &--center {
+    align-items: center;
+  }
+}
+.message {
+  padding: 2.8rem 3.2rem;
+  text-align: center;
+  // max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 3.2rem;
+  font-size: 2.2rem;
+  color: var(--color-white);
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+  &--warn {
+    background-color: var(--color-warning);
+  }
+  &--success {
+    background-color: var(--color-primary-light);
+  }
+  &--alert {
+    background-color: var(--color-alert);
+  }
+}
+.loader {
+  height: 100vh;
+  background-color: var(--color-white);
+  position: fixed;
+  z-index: 10000000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__load {
+    height: 4rem;
+    width: 0.4rem;
+    background-color: var(--color-primary);
+    animation: loader 0.45s cubic-bezier(1, 0, 0, 1) infinite;
+  }
+}
+.u-padding-top-huge {
+  padding-top: 12rem;
+}
+.u-link {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: currentColor;
+    font-size: 2rem;
+    font-weight: var(--font-weight-4);
+    text-transform: uppercase;
+  }
+  &--text {
+    color: var(--color-primary);
+  }
+}

@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  @media only screen and (max-width: $bp-largest) {
+    max-width: 100rem;
+  }
+  @media only screen and (max-width: $bp-large) {
+    max-width: 95rem;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    max-width: 70rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    max-width: 50rem;
+  }
+}
+::selection {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+}
+// .container {
+//   padding: 6.4rem;
+//   background: linear-gradient(
+//     to right,
+//     var(--color-primary-dark-4),
+//     var(--color-primary-dark-1)
+//   );
+//   &__content {
+//     background-color: ;
+//   }
+// }

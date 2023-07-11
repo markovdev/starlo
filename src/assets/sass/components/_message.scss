@@ -1,0 +1,17 @@
+.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.8rem;
+
+  color: var(--color-white);
+  border-radius: 0;
+  &--fail {
+    background-color: var(--color-warn);
+  }
+  &--success {
+    background-color: var(--color-primary-dark-1);
+  }
+}

@@ -1,0 +1,13 @@
+.not-found {
+  height: 100vh;
+  background-color: #e6f2ef;
+  padding: 3.2rem;
+  @include flexCol;
+  gap: 0.4rem;
+  justify-content: center;
+  &__heading {
+    font-size: 3rem;
+    font-weight: var(--font-weight-4);
+    text-transform: uppercase;
+  }
+}

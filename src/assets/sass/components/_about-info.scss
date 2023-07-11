@@ -1,0 +1,41 @@
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 4rem 0;
+  height: 100%;
+  &__pictures {
+    background: url("../img/about-2.jpg") no-repeat center center/cover;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  &__picture {
+    display: block;
+    width: 115%;
+    grid-row: 2 / span 2;
+    grid-column: 3 / span 3;
+
+    z-index: 5;
+    box-shadow: 0 1rem 4rem rgba(#000, 0.2);
+    &--1 {
+    }
+    &--2 {
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-white);
+    justify-content: center;
+  }
+  &__text {
+    width: 70%;
+    font-size: var(--font-size);
+    margin: 0 auto;
+    line-height: 2;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+}

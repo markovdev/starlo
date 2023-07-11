@@ -1,0 +1,26 @@
+.error {
+  background-color: var(--color-white);
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 6.4rem;
+  @include flexCol;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  gap: 1.2rem;
+  &__heading {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-warning);
+    text-transform: uppercase;
+  }
+  &__msg {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-grey-dark-3);
+    margin-bottom: 1rem;
+  }
+}
+.ctr {
+  max-width: 120rem;
+  margin: 0 auto;
+}

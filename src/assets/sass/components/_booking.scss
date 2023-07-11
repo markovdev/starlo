@@ -1,0 +1,36 @@
+.booking {
+  &__text-box {
+    @include flexCol;
+    gap: 3.2rem;
+    @media only screen and (max-width: $bp-medium) {
+      margin-bottom: 4rem;
+    }
+  }
+  &__text {
+    // margin-right: 5rem;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+  }
+  &__icon {
+    width: 6rem;
+    height: 6rem;
+    fill: var(--color-primary) !important;
+  }
+  &__info {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-white);
+  }
+
+  &__heading {
+    color: var(--color-primary-dark-5);
+  }
+  &__paragraph {
+    color: var(--color-primary-dark-4);
+  }
+  &__text {
+    color: var(--color-grey-light-1);
+  }
+}

@@ -1,0 +1,79 @@
+.animations {
+  &--fade {
+    transition: opacity 0.4s cubic-bezier(0.1, 0.32, 0.25, 1);
+  }
+  &--active {
+    opacity: 1 !important;
+  }
+}
+@keyframes scaleFromBottomFade {
+  from {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+// .fade-in {
+//   opacity: 0;
+//   transition: opacity 0.4s ease-in;
+// }
+// .fade-in.appear {
+//   opacity: 1;
+// }
+
+// .from-left {
+//   transform: translateX(-50%);
+// }
+// .from-right {
+//   transform: translateX(50%);
+// }
+// .from-left,
+// .from-right {
+//   transition: transform 0.4s ease-in;
+// }
+// .from-left.appear,
+// .from-right.appear {
+//   transform: translateX(0);
+// }
+
+@keyframes scaleFromFade {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes moveFromLeft {
+  from {
+    transform: translateX(-20rem);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRightFade {
+  from {
+    transform: translateX(20rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes loader {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,131 @@
+.form {
+  display: flex;
+  gap: 3.2rem;
+  @include flexCol;
+  width: 100%;
+  position: relative;
+
+  // @media only screen and (max-width: $bp-tab-port) {
+  //   width: 90%;
+  //   margin: 0 auto;
+  // }
+  &--center {
+    padding: 3.2rem;
+    max-width: 50rem;
+    margin: 0 auto;
+
+    box-shadow: 0 2rem 4rem rgba(#000, 0.1);
+    border-radius: var(--border-radius);
+  }
+  &__control {
+    width: 100%;
+
+    // display: flex;
+    // @include flexCol;
+  }
+  &__label {
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-3);
+    display: block;
+    margin-bottom: 1rem;
+    color: currentColor;
+    &--light {
+      color: var(--color-grey-light-1);
+    }
+    &--file {
+      background-color: var(--color-primary);
+      padding: 1.2rem;
+      border-radius: var(--el-radius);
+      color: var(--color-grey-light-3);
+      cursor: pointer;
+    }
+  }
+  &__textarea,
+  &__input {
+    transition: var(--transition-primary);
+
+    &--hidden {
+      display: none;
+    }
+    &[type="password"] {
+      &::placeholder {
+        font-weight: var(--font-weight-4);
+        font-size: 1.8rem;
+      }
+    }
+    &:focus {
+      outline: none;
+      // border: 1px solid var(--color-primary);
+      background-color: var(--color-grey-light-1);
+      color: currentColor;
+      box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    }
+    &:focus:invalid {
+      border: 3px solid var(--el-border) var(--color-warn);
+    }
+    &::placeholder {
+      color: currentColor;
+    }
+    &:placeholder-shown {
+      color: currentColor;
+    }
+  }
+  &__textarea,
+  &__select,
+  &__input,
+  &__input-label {
+    outline: 3px solid transparent;
+    padding: 1.2rem 1.4rem;
+    height: 4.2rem;
+    border-radius: var(--border-radius);
+    // border: none;
+
+    box-shadow: 0 2rem 6rem rgba(#000, 0.1);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    color: currentColor;
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  &__input {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 100%;
+    border-radius: var(--el-radius);
+    &--error {
+      border: 2px solid var(--color-warn);
+      animation: inputError 0.4s;
+    }
+    &--file {
+      display: none;
+    }
+  }
+  &__select {
+    padding: 0 1.5rem;
+    border-radius: var(--el-radius);
+  }
+  &__input-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__textarea {
+    height: 18rem;
+    max-width: 100%;
+  }
+  &__message {
+    position: absolute;
+    color: var(--color-warn);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-4);
+    margin-top: 0.2rem;
+    transition: all 450ms ease;
+  }
+  &__img {
+    width: 7.2rem;
+    height: 7.2rem;
+    border-radius: 50%;
+  }
+}

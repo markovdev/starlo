@@ -1,0 +1,16 @@
+.search-page {
+  //
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__input {
+  }
+  div:last-child {
+    grid-column: 1 /-1;
+  }
+}
+.section--search {
+  padding: 12rem 0;
+}

@@ -1,0 +1,37 @@
+.welcome {
+  position: relative;
+  &__ {
+    max-width: 60rem;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2rem 4rem rgba(#000, 0.15);
+    border-radius: var(--radius);
+    padding: 3.2rem;
+    @media only screen and (max-width: $bp-medium) {
+      max-width: 55rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      max-width: 46rem;
+    }
+    animation: scaleFromFade 0.8s ease;
+  }
+
+  &__icon {
+    width: 12rem;
+    height: 12rem;
+    fill: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+  }
+  &__highlight {
+    &--bold {
+      font-weight: 700;
+    }
+    &--warn {
+      color: var(--color-warning);
+    }
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,10 @@
+.two-factor {
+  // background-color: cadetblue;
+  width: 100%;
+  @include flexCol;
+  &__img {
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+  }
+}

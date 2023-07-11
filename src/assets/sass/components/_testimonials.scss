@@ -1,0 +1,60 @@
+.testimonials {
+  &__box {
+    padding: 3rem;
+    background: var(--color-white);
+    font-size: var(--font-size);
+    opacity: 0.9;
+  }
+  &__shape {
+    width: 10rem;
+    height: 10rem;
+    float: left;
+    transform: translateX(-1rem);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 2rem;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+
+    transition: all 0.5s ease-in-out;
+  }
+  &__text {
+  }
+  &__name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.6rem;
+    color: var(--color-white);
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+  &__box:hover &__name {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-35%, -50%);
+    transition: all 0.5s;
+  }
+  &__box:hover &__image {
+    transform: scale(1.3);
+    filter: blur(0.4rem);
+  }
+}
