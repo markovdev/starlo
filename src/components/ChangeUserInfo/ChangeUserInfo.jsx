@@ -7,7 +7,7 @@ import Message from "../UI/Message/Message";
 import Form from "../UI/Form/Form";
 import Heading from "../Typography/Heading";
 import { API_URL } from "../../config";
-const ChangeUserInfo = () => {
+const ChangeUserInfo = (props) => {
   const { sendRequest: getUserInfo, data: userInfo, error, status } = useHttp();
   const {
     sendRequest: updateUserInfo,
@@ -37,11 +37,14 @@ const ChangeUserInfo = () => {
   }, []);
   if (updateStatus === "success") {
     localStorage.setItem(
-      "userData",
-      JSON.stringify({ photo: updatedUserInfo?.data.user.photo })
+      "userInformation",
+      JSON.stringify({
+        name: updatedUserInfo?.data.user.name,
+        photo: updatedUserInfo?.data.user.photo,
+      })
     );
   }
-
+  console.log(updatedUserInfo?.data.user);
   return (
     <div className="change-info">
       {error && <Message text={error.response.data.message} error />}

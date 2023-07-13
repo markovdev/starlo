@@ -22,8 +22,7 @@ const Login = (props) => {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const formData = new FormData();
-    formData.append("userData", { email, password });
+
     props.onAuth(email, password);
   }, []);
   const goToSlide = function (slide) {

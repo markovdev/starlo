@@ -1,12 +1,12 @@
 import * as actionTypes from "../actions/actionTypes";
 const initialState = {
-  token: null,
-  userId: null,
-  error: null,
+  token: false,
+  userId: false,
+  error: false,
   loading: false,
 
-  photo: null,
-  name: null,
+  photo: false,
+  name: false,
 };
 const updateObject = (oldObject, updatedProperties) => {
   return {

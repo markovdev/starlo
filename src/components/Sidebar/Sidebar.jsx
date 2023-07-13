@@ -1,16 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import List from "../List/List";
-import Item from "../List/Item/Item";
 import { NavLink, Navigate } from "react-router-dom";
-import {
-  LiaAdSolid,
-  LiaBackwardSolid,
-  LiaBedSolid,
-  LiaLockSolid,
-  LiaUserCogSolid,
-} from "react-icons/lia";
+import { LiaBedSolid, LiaLockSolid, LiaUserCogSolid } from "react-icons/lia";
 import Modal from "../UI/Modal/Modal";
+import AuthContext from "../../context/auth-context";
 const Sidebar = () => {
+  const auth = useContext(AuthContext);
+  console.log(auth);
   const [redirect, setRedirect] = useState(false);
   const [confirm, setConfirm] = useState(false);
 
@@ -41,7 +37,7 @@ const Sidebar = () => {
     <div className="sidebar">
       {" "}
       {confirm ? (
-        <Modal cb={() => logoutHandler()} text="Do you want to logout?" />
+        <Modal cb={auth.logout} text="Do you want to logout?" />
       ) : null}
       {redirect && <Navigate to="/" />}
       <List isCol>

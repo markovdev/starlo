@@ -14,12 +14,11 @@ const Header = () => {
         </Reveal>
 
         <SlideIn hidden={{ x: "-100%" }}>
-          <a className="btn btn--secondary u-margin-right-small" href="/rooms">
-            Check our rooms!
-          </a>
           <a
             className="btn btn--primary"
-            href="https://github.com/markovdev/starlo#starlo"
+            href="https://github.com/markovdev/starlo-api#starlo"
+            rel="noreferrer"
+            target="_blank"
           >
             API documntation
           </a>

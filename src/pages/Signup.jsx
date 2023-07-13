@@ -8,51 +8,47 @@ import Section from "../components/Section/Section";
 import Form from "../components/UI/Form/Form";
 import { API_URL } from "../config";
 import Container from "../components/Containers/Container";
-const Signup = () => {
-  const { sendRequest, data, error, status } = useHttp();
+import * as actions from "../store/actions/index";
+import { connect } from "react-redux";
+const Signup = (props) => {
+  const { status, error, data, onSignup } = props;
   const signupHandler = useCallback((e) => {
     e.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
-    sendRequest(`${API_URL}/users/signup`, "POST", null, {
-      name,
-      email,
-      password,
-      confirmPassword,
-    });
+    onSignup(name, email, password, confirmPassword);
   });
-  console.log(data);
-  if (status === "success") {
-    const { token, photo, name, role, userId } = data;
-    const expiresIn = new Date(new Date().getTime() + 1 * 10000);
+  // if (status === "success") {
+  //   const { token, photo, name, role, userId } = data;
+  //   const expiresIn = new Date(new Date().getTime() + 1 * 10000);
 
-    localStorage.setItem(
-      "userAuth",
-      JSON.stringify({
-        id: userId,
-        token,
-        role,
-        expiresIn: expiresIn,
-      })
-    );
-    localStorage.setItem(
-      "userInformation",
-      JSON.stringify({
-        name,
-        photo,
-      })
-    );
-    return <Navigate to="/" />;
-  }
+  //   localStorage.setItem(
+  //     "userAuth",
+  //     JSON.stringify({
+  //       id: userId,
+  //       token,
+  //       role,
+  //       expiresIn: expiresIn,
+  //     })
+  //   );
+  //   localStorage.setItem(
+  //     "userInformation",
+  //     JSON.stringify({
+  //       name,
+  //       photo,
+  //     })
+  //   );
+  //   return <Navigate to="/" />;
+  // }
 
-  // if (status === "success") return <Navigate to="/me" />;
-
+  if (status === "success") return <Navigate to="/me" />;
+  // console.log(status);
   return (
     <React.Fragment>
       {status && <Message text="Signed up successfully!" />}
-      {error?.response && <Message text={error?.response.data.message} error />}
+      {error && <Message text={error} error />}
       <Section className="section--signup">
         <Container>
           <div className="signup grid grid--col-2 grid--no-gap">
@@ -86,5 +82,21 @@ const Signup = () => {
     </React.Fragment>
   );
 };
-
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.auth.loading,
+    error: state.auth.error,
+    token: state.auth.token,
+    isTwoFa: state.auth.isTwoFa,
+    curIndex: state.auth.curIndex,
+    accessToken: state.auth.accessToken,
+    status: state.auth.status,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSignup: (name, email, password, confirmPassword) =>
+      dispatch(actions.signup(name, email, password, confirmPassword)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

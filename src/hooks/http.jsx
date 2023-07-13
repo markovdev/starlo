@@ -48,7 +48,7 @@ const useHttp = () => {
       headers = {
         ...headers,
         Authorization:
-          "Bearer " + JSON.parse(localStorage.getItem("userData"))?.token,
+          "Bearer " + JSON.parse(localStorage.getItem("userAuth"))?.token,
       };
     dispatchHttp({ type: "SEND" });
     axios({

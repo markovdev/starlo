@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/UI/Navbar";
 import "./assets/css/style.css";
 import Home from "./pages/Home";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AddRoom from "./pages/AddRoom";
@@ -19,56 +19,75 @@ import * as actions from "./store/actions/actionTypes";
 import { connect } from "react-redux";
 import Loader from "./components/UI/Loader/Loader";
 let logoutTimer;
+const initialAuthState = {
+  isAuth: false,
+  token: null,
+  name: null,
+  id: null,
+  photo: null,
+  role: null,
+};
 function App(props) {
   const [isLoading, setIsLoading] = useState(true);
-  const [userInfo, setUserInfo] = useState(false);
+  const [freshUser, setFreshUser] = useState(false);
   const [token, setToken] = useState(null);
   const [tokenExpDate, setTokenExpDate] = useState(null);
-  const { name, photo, userId: id, status } = props;
 
+  const [userAuth, setUserAuth] = useState(initialAuthState);
+  const { status, id } = props;
   window.addEventListener("load", () => {
     setIsLoading(false);
     document.querySelector("body").style.overflowY = "visible";
   });
   const logout = useCallback(() => {
-    localStorage.removeItem("userData");
-    setUserInfo(null);
-    setTokenExpDate(null);
+    localStorage.removeItem("userInformation");
+    localStorage.removeItem("userAuth");
+    setUserAuth(null);
+    setFreshUser(null);
     setToken(null);
+    return <Navigate to="/" />;
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("userAuth")) {
-      setUserInfo(JSON.parse(localStorage.getItem("userAuth")));
-      setToken(JSON.parse(localStorage.getItem("userAuth")).token);
-      setTokenExpDate(JSON.parse(localStorage.getItem("userAuth")).expiresIn);
-    } else if (localStorage.getItem("userInformation")) {
-      setUserInfo(JSON.parse(localStorage.getItem("userInformation")));
+    if (
+      localStorage.getItem("userInformation") &&
+      localStorage.getItem("userAuth")
+    ) {
+      const userAuth = JSON.parse(localStorage.getItem("userAuth"));
+      const userInfo = JSON.parse(localStorage.getItem("userInformation"));
+
+      setUserAuth({ ...userAuth, ...userInfo });
     }
+
     if (isLoading) document.querySelector("body").style.overflowY = "hidden";
   }, []);
   useEffect(() => {
     if (status === "success") {
-      console.log("[+] Auth is success and setting new items.");
-      const expiresIn = new Date(new Date().getTime() + 1 * 10000);
-      setTokenExpDate(expiresIn);
-      setToken(props.token);
+      const expiresIn = new Date(new Date().getTime() + 3 * 60 * 60 * 24);
+
       localStorage.setItem(
         "userAuth",
         JSON.stringify({
           id,
           token: props.token,
-
           expiresIn: expiresIn,
         })
       );
       localStorage.setItem(
         "userInformation",
         JSON.stringify({
-          name,
-          photo,
+          name: props.name,
+          photo: props.photo,
         })
       );
+      setFreshUser({
+        name: props.name,
+        photo: props.photo,
+        token: props.token,
+        id,
+      });
+
+      <Navigate to="/" />;
     }
   }, [status]);
   useEffect(() => {
@@ -84,7 +103,7 @@ function App(props) {
   return (
     <div className="app">
       <AuthContext.Provider
-        value={{ userData: userInfo || { id, token, photo, name } }}
+        value={{ userData: freshUser || userAuth, logout: logout }}
       >
         <Navbar />
         {isLoading ? <Loader /> : null}
